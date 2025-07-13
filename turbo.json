@@ -1,16 +1,23 @@
 {
-    "$schema": "https://turborepo.com/schema.json",
-    "tasks": {
-      "build": {
-        "dependsOn": ["^build"],
-        "outputs": [".next/**", "!.next/cache/**"]
-      },
-      "check-types": {
-        "dependsOn": ["^check-types"]
-      },
-      "dev": {
-        "persistent": true,
-        "cache": false
-      }
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "passThroughEnv": [
+        "DATABASE_URL",
+        "BETTER_AUTH_SECRET",
+        "BETTER_AUTH_URL",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "NODE_ENV"
+      ]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
     }
   }
+}
